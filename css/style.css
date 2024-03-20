@@ -41,6 +41,11 @@ main>div#field {
     padding: 2px;
     border: 10px solid #4D39AC;
 }
+main>div#timer {
+    height: 90px;
+    font-size: 4rem;
+    text-align: center;
+}
 main>div#timer,
 main>div#answer {
     width: 70%;
@@ -51,6 +56,10 @@ main>div#answer {
 main>div#answer input {
     width: calc(100% / 5 - 20px);
     margin: 10px;
+}
+main>div#answer input:disabled {
+    background-color: white;
+    color: black;
 }
 main>div#answer input.true {
     border: 5px solid green;
@@ -65,7 +74,6 @@ main>div#field .box {
     color: #ffffff;
     font-size: 5rem;
     border: 2px solid  #4B2786;
-    cursor: crosshair;
 }
 /* footer */
 footer {
