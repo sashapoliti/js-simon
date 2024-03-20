@@ -4,10 +4,12 @@ Dopo i 30 secondi i numeri scompaiono e l'utente deve inserire, uno alla volta, 
 Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati. */
 
 const playButton = document.querySelector('header button'); //take play button
+const answerButton = document.querySelector('main>div#answer button'); //take answer button
 
+let SimonSays = [];
 playButton.addEventListener('click', function() {
     /* generate array with unique numbers */
-    const SimonSays = []; //reset array
+    SimonSays = []; //reset array
     document.querySelectorAll('main>div#answer input').forEach(input => {
         input.classList.remove('true', 'false');
     }) //reset input
@@ -38,18 +40,18 @@ playButton.addEventListener('click', function() {
     }, 1000);
     setTimeout(() => {        
         field.classList.add('d-none');
-    }, 7000);
+    }, 7000);    
+})
 
-    /* input user */
-    const answerButton = document.querySelector('main>div#answer button');
-    answerButton.addEventListener('click', function() {
-        for (let i = 0; i < 5; i++) {
-            const inputElement = document.querySelector(`main>div#answer input:nth-child(${i + 1})`);
-            if (SimonSays.includes(parseInt(inputElement.value))) {
-                inputElement.classList.add('true');
-            } else {
-                inputElement.classList.add('false');
-            }
+/* input user */    
+answerButton.addEventListener('click', function() {
+    for (let i = 0; i < 5; i++) {
+        const inputElement = document.querySelector(`main>div#answer input:nth-child(${i + 1})`);
+        console.log(parseInt(inputElement.value));
+        if (SimonSays.includes(parseInt(inputElement.value))) {
+            inputElement.classList.add('true');
+        } else {
+            inputElement.classList.add('false');
         }
-    })
+    }
 })
