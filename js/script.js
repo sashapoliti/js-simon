@@ -64,6 +64,9 @@ answerButton.addEventListener('click', function() {
                 inputElement.classList.add('true');
                 inputElement.disabled = true;
                 points++;
+
+                const index = SimonSays.indexOf(parseInt(inputElement.value));
+                SimonSays.splice(index, 1);
             } else {
                 inputElement.classList.add('false');
                 inputElement.disabled = true;
