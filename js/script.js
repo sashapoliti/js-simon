@@ -7,6 +7,7 @@ const playButton = document.querySelector('header button'); //take play button
 const answerButton = document.querySelector('main>div#answer button'); //take answer button
 const field = document.getElementById('field');
 const answer = document.getElementById('answer');
+const win = document.getElementById('win');
 
 let SimonSays = [];
 let played = false;
@@ -20,6 +21,7 @@ playButton.addEventListener('click', function() {
         input.value = '';
     }) //reset input
     let timer = 30; //reset timer
+    win.classList.add('d-none'); //reset win
     generateArrayOfUniqueRandomNumber(1, 100, SimonSays, 5);
     console.log(SimonSays);
 
@@ -54,12 +56,14 @@ playButton.addEventListener('click', function() {
 
 /* input user */    
 answerButton.addEventListener('click', function() {
+    let points = 0;
     if (played) {
         for (let i = 0; i < 5; i++) {
             const inputElement = document.querySelector(`main>div#answer input:nth-child(${i + 1})`);
             if (SimonSays.includes(parseInt(inputElement.value))) {
                 inputElement.classList.add('true');
                 inputElement.disabled = true;
+                points++;
             } else {
                 inputElement.classList.add('false');
                 inputElement.disabled = true;
@@ -67,5 +71,10 @@ answerButton.addEventListener('click', function() {
         }
         played = false;
         field.classList.remove('opacity-0');
+
+        /* win/lose situation */
+        if (points === 5) {
+            win.classList.remove('d-none');
+        }
     } else { return; }
 })
