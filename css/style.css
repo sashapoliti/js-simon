@@ -85,6 +85,11 @@ main>div#win img {
     display: block;
     width: calc(100% / 3);
 }
+main>div#game-over {
+    position: fixed;
+    top: calc(50% - 100px);
+    left: calc(50% - 636px / 2);
+}
 
 /* footer */
 footer {

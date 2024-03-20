@@ -8,6 +8,7 @@ const answerButton = document.querySelector('main>div#answer button'); //take an
 const field = document.getElementById('field');
 const answer = document.getElementById('answer');
 const win = document.getElementById('win');
+const gameOver = document.getElementById('game-over');
 
 let SimonSays = [];
 let played = false;
@@ -22,6 +23,7 @@ playButton.addEventListener('click', function() {
     }) //reset input
     let timer = 30; //reset timer
     win.classList.add('d-none'); //reset win
+    gameOver.classList.add('d-none'); //reset game over
     generateArrayOfUniqueRandomNumber(1, 100, SimonSays, 5);
     console.log(SimonSays);
 
@@ -78,6 +80,8 @@ answerButton.addEventListener('click', function() {
         /* win/lose situation */
         if (points === 5) {
             win.classList.remove('d-none');
+        } else {
+            gameOver.classList.remove('d-none');
         }
     } else { return; }
 })
