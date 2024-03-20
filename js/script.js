@@ -6,13 +6,17 @@ Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei num
 const playButton = document.querySelector('header button'); //take play button
 
 playButton.addEventListener('click', function() {
-    const SimonSays = [];
+    const SimonSays = []; //reset array
     generateArrayOfUniqueRandomNumber(1, 100, SimonSays, 5);
     console.log(SimonSays);
 
     const field = document.getElementById('field');
+    field.innerHTML = ''; //reset boxes in field
     for (let i = 0; i < 5; i++) {
         const box = createBox(SimonSays[i]);
         field.appendChild(box);
     }
+    setTimeout(() => {
+        field.classList.add('d-none');
+    }, 5000);
 })
