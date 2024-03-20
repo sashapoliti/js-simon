@@ -35,4 +35,15 @@ playButton.addEventListener('click', function() {
     setTimeout(() => {        
         field.classList.add('d-none');
     }, 7000);
+
+    /* input user */
+    const answerButton = document.querySelector('main>div#answer button');
+    answerButton.addEventListener('click', function() {
+        const answers = [];
+        for (let i = 0; i < 5; i++) {
+            const inputElement = document.querySelector(`main>div#answer input:nth-child(${i + 1})`);
+            answers.push(inputElement.value);
+        }
+        console.log(answers);
+    })
 })

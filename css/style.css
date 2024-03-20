@@ -41,6 +41,17 @@ main>div#field {
     padding: 2px;
     border: 10px solid #4D39AC;
 }
+main>div#timer,
+main>div#answer {
+    width: 70%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 5px;
+}
+main>div#answer input {
+    width: calc(100% / 5 - 20px);
+    margin: 10px;
+}
 main>div#field .box {
     width: calc(100% / 5);
     aspect-ratio: 1 / 1;
