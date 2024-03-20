@@ -52,6 +52,12 @@ main>div#answer input {
     width: calc(100% / 5 - 20px);
     margin: 10px;
 }
+main>div#answer input.true {
+    border: 5px solid green;
+}
+main>div#answer input.false {
+    border: 5px solid red;
+}
 main>div#field .box {
     width: calc(100% / 5);
     aspect-ratio: 1 / 1;

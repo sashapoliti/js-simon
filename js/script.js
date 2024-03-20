@@ -8,6 +8,10 @@ const playButton = document.querySelector('header button'); //take play button
 playButton.addEventListener('click', function() {
     /* generate array with unique numbers */
     const SimonSays = []; //reset array
+    document.querySelectorAll('main>div#answer input').forEach(input => {
+        input.classList.remove('true', 'false');
+    }) //reset input
+    let timer = 5; //reset timer
     generateArrayOfUniqueRandomNumber(1, 100, SimonSays, 5);
     console.log(SimonSays);
 
@@ -22,12 +26,12 @@ playButton.addEventListener('click', function() {
     /* start timer */
     const timerElement = document.getElementById('timer');
     field.classList.remove('d-none'); //reset field display
-    timerElement.classList.remove('d-none'); //reset timer
-    let timer = 5;
-    setInterval(() => {
+    timerElement.classList.remove('d-none'); //reset timer    
+    myInterval = setInterval(() => {
         timerElement.innerHTML = timer;       
-        if (timer === -1) {
-            clearInterval
+        if (timer <= -1) {
+            clearInterval(myInterval)
+            timerElement.innerHTML = '';
             timerElement.classList.add('d-none');
         }
         timer-= 1;
@@ -39,11 +43,13 @@ playButton.addEventListener('click', function() {
     /* input user */
     const answerButton = document.querySelector('main>div#answer button');
     answerButton.addEventListener('click', function() {
-        const answers = [];
         for (let i = 0; i < 5; i++) {
             const inputElement = document.querySelector(`main>div#answer input:nth-child(${i + 1})`);
-            answers.push(inputElement.value);
+            if (SimonSays.includes(parseInt(inputElement.value))) {
+                inputElement.classList.add('true');
+            } else {
+                inputElement.classList.add('false');
+            }
         }
-        console.log(answers);
     })
 })
