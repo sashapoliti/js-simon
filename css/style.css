@@ -67,6 +67,15 @@ main>div#answer input.true {
 main>div#answer input.false {
     border: 5px solid red;
 }
+main>div#answer button {
+    background-color: #1FA7C4;
+    color: #4B2786;
+    padding: 2px 10px;
+}
+main>div#answer button:hover {
+    color: white;
+    transition-duration: 0.2s;
+}
 main>div#field .box {
     width: calc(100% / 5);
     aspect-ratio: 1 / 1;
